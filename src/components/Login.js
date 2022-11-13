@@ -47,11 +47,11 @@ const Login = () => {
     }
 
     async function getUser(){
-        console.log("In get USer")
+        
         try{
         const response= await axios.post('https://fullstackapi.onrender.com/login',userData)
         const data= await response.data;
-        console.log(data+"SUar ke");
+       
         if(data==""){
             console.log("Error in getting user") 
         }
@@ -59,7 +59,7 @@ const Login = () => {
     // console.log(data);
              setLoggedIn(prev=>!prev);
              setAuth({data})
-             console.log(loggedIn)
+             
              navigate(`/welcome`,{state:{"userId":data,"userName":userData.username}})
     
         }
