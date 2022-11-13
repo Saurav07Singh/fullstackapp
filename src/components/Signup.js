@@ -54,7 +54,7 @@ const Signup = () => {
 
     async function addnNewUser(){
         try{
-        const response= await axios.post('http://localhost:5000/',userData)
+        const response= await axios.post('https://fullstackapi.onrender.com/',userData)
         const data= await response.data;
         if(!data){
             console.log("Error in creating user") 

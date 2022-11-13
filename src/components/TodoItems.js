@@ -50,7 +50,7 @@ function updateItems(id){
    return;
   }
  // console.log(id)
-  axios.put(`http://localhost:5000/${id}`,{"newItem":newItem.trim(),"userID":userId})
+  axios.put(`https://fullstackapi.onrender.com/${id}`,{"newItem":newItem.trim(),"userID":userId})
   .then(response=>setListOfTodos( response.data))
   .catch(err=>{
     if(!err?.response)
@@ -72,7 +72,7 @@ function updateItems(id){
 // }
 
 function deleteItems(id){
-  axios.delete(`http://localhost:5000/${id}`)
+  axios.delete(`https://fullstackapi.onrender.com/${id}`)
   .then(response=>response)
   .catch(err=>setErrorMessage(err))
 
@@ -93,7 +93,7 @@ function deleteItems(id){
       setErrorMessage("Max 20 charecters allowed ")
       return;
      }
-     const response= await axios.post(`http://localhost:5000/${userId}`,{"newItem":newItem.trim()})
+     const response= await axios.post(`https://fullstackapi.onrender.com/${userId}`,{"newItem":newItem.trim()})
      const data= await response.data
      //console.log(data)
      
@@ -119,7 +119,7 @@ function deleteItems(id){
 function completedListItems(id){
  
  // console.log(id+"IN completedListofItems")
-  axios.post(`http://localhost:5000/comp/${id}`,{"userId":userId})
+  axios.post(`https://fullstackapi.onrender.com/comp/${id}`,{"userId":userId})
   .then(response=>setListOfTodos(response.data))
   .catch(err=>{
     if(!err?.response)
@@ -130,7 +130,7 @@ function completedListItems(id){
 }
 
 useEffect(()=>{
-    axios.get(`http://localhost:5000/${userId}`)
+    axios.get(`https://fullstackapi.onrender.com/${userId}`)
     .then(response=>setListOfTodos(response.data))
     .catch(err=>setErrorMessage(err.message))
 },[])

@@ -49,7 +49,7 @@ const Login = () => {
     async function getUser(){
         console.log("In get USer")
         try{
-        const response= await axios.post('http://localhost:5000/login',userData)
+        const response= await axios.post('https://fullstackapi.onrender.com/login',userData)
         const data= await response.data;
         console.log(data+"SUar ke");
         if(data==""){
